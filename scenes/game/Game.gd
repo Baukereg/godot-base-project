@@ -8,7 +8,6 @@ onready var _player:Player = $Player
 # @override
 ##
 func _ready():
-	_set_language(Settings.language)
 	_title.text = tr("TITLE")
 	
 	_cam_control.target = _player
@@ -27,14 +26,6 @@ func _physics_process(delta):
 		if next_zoom_level >= ZoomLevel.data.size():
 			next_zoom_level = 0
 		_cam_control.set_zoom_level(next_zoom_level, true)
-		
-##
-# @method _set_language
-# @param {int} id
-##
-func _set_language(id:int):
-	Settings.language = id
-	TranslationServer.set_locale(Language.data[id].code)
 	
 ##
 # @method _on_camera_rotated

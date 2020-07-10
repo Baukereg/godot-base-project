@@ -1,2 +1,9 @@
 id;en;nl
+FULLSCREEN;Fullscreen;Volledig scherm
+INPUT_DEVICE_JOYPAD;Joypad;Controller
+INPUT_DEVICE_KEYBOARD;Keyboard;Toetsenbord
+INPUT_DEVICE_MOUSE;Mouse;Muis
+INPUT_DEVICE_MOUSE_KEYBOARD;Mouse and keyboard;Muis en toetsenbord
+QUIT;Quit;Afsluiten
+START_GAME;Start game;Start spel
 TITLE;Godot base project;Godot basisproject

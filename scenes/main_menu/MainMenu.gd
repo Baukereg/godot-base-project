@@ -1,8 +1,11 @@
 extends Node2D
 
-onready var _start_button = $Menu/StartButton
-onready var _quit_button = $Menu/QuitButton
-onready var _fullscreen_checkbox = $Menu/FullscreenCheckbox
+onready var _title:Label = $Title
+onready var _start_button:Button = $Menu/StartButton
+onready var _quit_button:Button = $Menu/QuitButton
+onready var _fullscreen_checkbox:CheckBox = $Menu/FullscreenCheckbox
+onready var _language_dropdown:OptionButton = $Menu/LanguageDropdown
+onready var _input_device_dropdown:OptionButton = $Menu/InputDeviceDropdown
 
 ##
 # @override
@@ -12,6 +15,20 @@ func _ready():
 	_start_button.connect("pressed", self, "_start_game")
 	_quit_button.connect("pressed", self, "_quit_game")
 	_fullscreen_checkbox.connect("pressed", self, "_toggle_fullscreen")
+	
+	# Set items of language drop down.
+	var num_of_languages = Language.data.size()
+	for i in num_of_languages:
+		var language_data = Language.data[i]
+		if !language_data.enabled:
+			continue
+		_language_dropdown.add_item(language_data.name, i)
+	
+	_language_dropdown.select(_language_dropdown.get_item_index(Settings.language))
+	_language_dropdown.connect("item_selected", self, "_set_language")
+	_set_language(Settings.language)
+	
+	_input_device_dropdown.connect("item_selected", self, "_set_input_device")
 
 ##
 # @method _start_game
@@ -30,3 +47,36 @@ func _quit_game():
 ##
 func _toggle_fullscreen():
 	 OS.window_fullscreen = _fullscreen_checkbox.pressed
+		
+##
+# @method _set_language
+# @param {int} idx
+##
+func _set_language(idx:int):
+	var id = _language_dropdown.get_item_id(idx)
+	Settings.language = id
+	TranslationServer.set_locale(Language.data[id].code)
+	
+	_title.text = tr("TITLE")
+	_start_button.text = tr("START_GAME")
+	_quit_button.text = tr("QUIT")
+	_fullscreen_checkbox.text = tr("FULLSCREEN")
+	
+	# Set items of input device drop down.
+	_input_device_dropdown.clear()
+	var num_of_devices = InputDevice.data.size()
+	for i in num_of_devices:
+		var device_data = InputDevice.data[i]
+		if !device_data.enabled:
+			continue
+		_input_device_dropdown.add_item(tr(device_data.tr), i)
+	
+	_input_device_dropdown.select(_input_device_dropdown.get_item_index(Settings.input_device))
+		
+##
+# @method _set_input_device
+# @param {int} idx
+##
+func _set_input_device(idx:int):
+	var id = _input_device_dropdown.get_item_id(idx)
+	Settings.input_device = id

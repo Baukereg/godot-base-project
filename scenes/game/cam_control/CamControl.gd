@@ -2,6 +2,7 @@ extends Spatial
 class_name CamController
 signal camera_rotated
 
+const TARGET_LERP_SPEED = .1
 const ROTATION_SPEED = deg2rad(1)
 const ZOOM_SPEED = 1
 
@@ -16,7 +17,7 @@ var zoom_level = 0
 ##
 func _physics_process(delta):
 	if target != null:
-		translation = lerp(translation, target.translation, .1)
+		translation = lerp(translation, target.translation, TARGET_LERP_SPEED)
 	
 	if Input.is_action_pressed("ui_rotate_left"):
 		rotate_y(-ROTATION_SPEED)

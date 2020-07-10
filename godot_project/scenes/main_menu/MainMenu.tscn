@@ -55,6 +55,7 @@ margin_right = 178.0
 margin_bottom = 138.0
 min_value = -70.0
 max_value = 0.0
+ticks_on_borders = true
 
 [node name="LanguageDropdown" type="OptionButton" parent="Menu"]
 margin_top = 142.0

@@ -4,6 +4,7 @@ onready var _title:Label = $Title
 onready var _start_button:Button = $Menu/StartButton
 onready var _quit_button:Button = $Menu/QuitButton
 onready var _fullscreen_checkbox:CheckBox = $Menu/FullscreenCheckbox
+onready var _tutorial_checkbox:CheckBox = $Menu/TutorialCheckbox
 onready var _language_dropdown:OptionButton = $Menu/LanguageDropdown
 onready var _input_device_dropdown:OptionButton = $Menu/InputDeviceDropdown
 
@@ -14,7 +15,13 @@ func _ready():
 	_start_button.grab_focus()
 	_start_button.connect("pressed", self, "_start_game")
 	_quit_button.connect("pressed", self, "_quit_game")
+	
+	OS.window_fullscreen = Settings.fullscreen
+	_fullscreen_checkbox.pressed = Settings.fullscreen
 	_fullscreen_checkbox.connect("pressed", self, "_toggle_fullscreen")
+	
+	_tutorial_checkbox.pressed = Settings.tutorial_unabled
+	_tutorial_checkbox.connect("pressed", self, "_toggle_tutorial")
 	
 	# Set items of language drop down.
 	var num_of_languages = Language.data.size()
@@ -47,6 +54,12 @@ func _quit_game():
 ##
 func _toggle_fullscreen():
 	 OS.window_fullscreen = _fullscreen_checkbox.pressed
+	
+##
+# @method _toggle_tutorial
+##
+func _toggle_tutorial():
+	 Settings.tutorial_unabled = _tutorial_checkbox.pressed
 		
 ##
 # @method _set_language
@@ -61,6 +74,7 @@ func _set_language(idx:int):
 	_start_button.text = tr("START_GAME")
 	_quit_button.text = tr("QUIT")
 	_fullscreen_checkbox.text = tr("FULLSCREEN")
+	_tutorial_checkbox.text = tr("TUTORIAL_ENABLE")
 	
 	# Set items of input device drop down.
 	_input_device_dropdown.clear()

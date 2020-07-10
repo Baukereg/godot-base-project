@@ -15,7 +15,6 @@ custom_fonts/font = ExtResource( 2 )
 text = "Title of the game"
 
 [node name="Menu" type="VBoxContainer" parent="."]
-editor/display_folded = true
 margin_left = 10.0
 margin_top = 75.0
 margin_right = 188.0
@@ -38,12 +37,18 @@ margin_right = 178.0
 margin_bottom = 72.0
 text = "Fullscreen"
 
-[node name="LanguageDropdown" type="OptionButton" parent="Menu"]
+[node name="TutorialCheckbox" type="CheckBox" parent="Menu"]
 margin_top = 76.0
 margin_right = 178.0
-margin_bottom = 96.0
+margin_bottom = 100.0
+text = "Tutorial"
+
+[node name="LanguageDropdown" type="OptionButton" parent="Menu"]
+margin_top = 104.0
+margin_right = 178.0
+margin_bottom = 124.0
 
 [node name="InputDeviceDropdown" type="OptionButton" parent="Menu"]
-margin_top = 100.0
+margin_top = 128.0
 margin_right = 178.0
-margin_bottom = 120.0
+margin_bottom = 148.0

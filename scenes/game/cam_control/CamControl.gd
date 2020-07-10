@@ -37,7 +37,7 @@ func set_zoom_level(id:int, tween:bool = false):
 	
 	if !tween:
 		_camera.translation = zoom_level_data.translation
-		_camera.rotation_degrees = zoom_level_data.rotation
+		_camera.rotation = zoom_level_data.rotation
 	else:
 		_tween.stop_all()
 		_tween.interpolate_property(
@@ -46,8 +46,8 @@ func set_zoom_level(id:int, tween:bool = false):
 			Tween.TRANS_QUAD, Tween.EASE_OUT
 		)
 		_tween.interpolate_property(
-			_camera, "rotation_degrees",
-			_camera.rotation_degrees, zoom_level_data.rotation, ZOOM_SPEED,
+			_camera, "rotation",
+			_camera.rotation, zoom_level_data.rotation, ZOOM_SPEED,
 			Tween.TRANS_QUAD, Tween.EASE_OUT
 		)
 		_tween.start()

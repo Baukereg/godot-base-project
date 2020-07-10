@@ -16,6 +16,8 @@ var _current_entry_idx:int
 # @override
 ##
 func _ready():
+	get_tree().paused = true
+	
 	_previous_button.text = tr("PREVIOUS")
 	_previous_button.connect("pressed", self, "_previous_entry")
 	
@@ -77,4 +79,5 @@ func _next_entry():
 # @method _end_tutorial
 ##
 func _end_tutorial():
+	get_tree().paused = false
 	emit_signal("tutorial_end")

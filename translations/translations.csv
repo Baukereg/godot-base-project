@@ -1,11 +1,14 @@
 id;en;nl
+BACK_TO_MAIN_MENU;Back to main menu;Terug naar startmenu
 CLOSE;Close;Sluiten
+CONTINUE;Continue;Doorgaan
 FULLSCREEN;Fullscreen;Volledig scherm
 INPUT_DEVICE_JOYPAD;Joypad;Controller
 INPUT_DEVICE_KEYBOARD;Keyboard;Toetsenbord
 INPUT_DEVICE_MOUSE;Mouse;Muis
 INPUT_DEVICE_MOUSE_KEYBOARD;Mouse and keyboard;Muis en toetsenbord
 NEXT;Next;Volgende
+PAUSE;Pause;Pauze
 PREVIOUS;Previous;Vorige
 QUIT;Quit;Afsluiten
 START_GAME;Start game;Start spel
@@ -13,5 +16,5 @@ TITLE;Godot base project;Godot basisproject
 TUTORIAL_BASICS;Basic tutorial;Basisuitleg
 TUTORIAL_ENABLE;Enable tutorial;Uitleg inschakelen
 TUTORIAL_HAVE_FUN;Good luck and have fun!;Veel geluk en plezier!
-TUTORIAL_JOYPAD;Left stick or D-pad to move.\n\nL2 and R2 to rotate camera.\n\nSELECT to change camera zoom level.;Linker stick of D-pad om te bewegen.\n\nL2 en R2 om de camera te roteren.\n\nSELECT om het camerstandpunt van de camera te veranderen.
-TUTORIAL_KEYBOARD;Arrows or WASD to move.\n\nQ and E to rotate camera.\n\nC to change camera zoom level.;Pijltjes of WASD om te bewegen.\n\nQ en E om de camera te roteren.\n\nC om het camerstandpunt van de camera te veranderen.
+TUTORIAL_JOYPAD;Left stick or D-pad to move.\n\nL2 and R2 to rotate camera.\n\nSELECT to change camera zoom level.\n\nSTART to pause game.;Linker stick of D-pad om te bewegen.\n\nL2 en R2 om de camera te roteren.\n\nSELECT om het camerstandpunt van de camera te veranderen.\n\nSTART om het spel te pauzeren.
+TUTORIAL_KEYBOARD;Arrows or WASD to move.\n\nQ and E to rotate camera.\n\nC to change camera zoom level.\n\nESCAPE to pause game.;Pijltjes of WASD om te bewegen.\n\nQ en E om de camera te roteren.\n\nC om het camerstandpunt van de camera te veranderen.\n\nESCAPE om het spel te pauzeren.

@@ -53,13 +53,14 @@ func _quit_game():
 # @method _toggle_fullscreen
 ##
 func _toggle_fullscreen():
-	 OS.window_fullscreen = _fullscreen_checkbox.pressed
+	OS.window_fullscreen = _fullscreen_checkbox.pressed
+	Settings.fullscreen = OS.window_fullscreen
 	
 ##
 # @method _toggle_tutorial
 ##
 func _toggle_tutorial():
-	 Settings.tutorial_unabled = _tutorial_checkbox.pressed
+	Settings.tutorial_unabled = _tutorial_checkbox.pressed
 		
 ##
 # @method _set_language

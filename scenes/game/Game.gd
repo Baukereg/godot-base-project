@@ -1,11 +1,13 @@
 extends Spatial
 
 onready var TUTORIAL_RESOURCE = preload("res://scenes/game/tutorial/Tutorial.tscn")
+onready var PAUSE_MENU_RESOURCE = preload("res://scenes/game/pause_menu/PauseMenu.tscn")
 
 onready var _cam_control:CamController = $CamControl
 onready var _player:Player = $Player
 
 var _tutorial:Tutorial = null
+var _pause_menu:PauseMenu = null
 
 ##
 # @override
@@ -33,6 +35,9 @@ func _physics_process(delta):
 			next_zoom_level = 0
 		_cam_control.set_zoom_level(next_zoom_level, true)
 		
+	if Input.is_action_just_released("ui_pause"):
+		_open_pause_menu()
+		
 ##
 # @method _start_tutorial
 # @param {Array} entry_ids
@@ -42,7 +47,6 @@ func _start_tutorial(entry_ids:Array):
 	add_child(_tutorial)
 	_tutorial.initialize(entry_ids)
 	_tutorial.connect("tutorial_end", self, "_on_tutorial_end")
-	get_tree().paused = true
 		
 ##
 # @method _on_tutorial_end
@@ -51,7 +55,6 @@ func _on_tutorial_end():
 	remove_child(_tutorial)
 	_tutorial.queue_free()
 	_tutorial = null
-	get_tree().paused = false
 	
 ##
 # @method _on_camera_rotated
@@ -59,3 +62,19 @@ func _on_tutorial_end():
 ##
 func _on_camera_rotated(camera_angle:float):
 	_player.movement_offset = -camera_angle
+	
+##
+# @method _open_pause_menu
+##
+func _open_pause_menu():
+	_pause_menu = PAUSE_MENU_RESOURCE.instance()
+	add_child(_pause_menu)
+	_pause_menu.connect("continue_game", self, "_on_pause_menu_close")
+	
+##
+# @method _on_pause_menu_close
+##
+func _on_pause_menu_close():
+	remove_child(_pause_menu)
+	_pause_menu.queue_free()
+	_pause_menu = null

@@ -7,6 +7,7 @@ INPUT_DEVICE_JOYPAD;Joypad;Controller
 INPUT_DEVICE_KEYBOARD;Keyboard;Toetsenbord
 INPUT_DEVICE_MOUSE;Mouse;Muis
 INPUT_DEVICE_MOUSE_KEYBOARD;Mouse and keyboard;Muis en toetsenbord
+MUSIC_VOLUME;Music volume;Muziekvolume
 NEXT;Next;Volgende
 PAUSE;Pause;Pauze
 PREVIOUS;Previous;Vorige

@@ -5,6 +5,8 @@ onready var _start_button:Button = $Menu/StartButton
 onready var _quit_button:Button = $Menu/QuitButton
 onready var _fullscreen_checkbox:CheckBox = $Menu/FullscreenCheckbox
 onready var _tutorial_checkbox:CheckBox = $Menu/TutorialCheckbox
+onready var _music_volume_label = $Menu/MusicVolumeLabel
+onready var _music_volume_slider = $Menu/MusicVolumeSlider
 onready var _language_dropdown:OptionButton = $Menu/LanguageDropdown
 onready var _input_device_dropdown:OptionButton = $Menu/InputDeviceDropdown
 
@@ -23,6 +25,9 @@ func _ready():
 	_tutorial_checkbox.pressed = Settings.tutorial_unabled
 	_tutorial_checkbox.connect("pressed", self, "_toggle_tutorial")
 	
+	_music_volume_slider.value = Settings.music_volume
+	_music_volume_slider.connect("value_changed", self, "_set_music_volume")
+	
 	# Set items of language drop down.
 	var num_of_languages = Language.data.size()
 	for i in num_of_languages:
@@ -36,6 +41,10 @@ func _ready():
 	_set_language(Settings.language)
 	
 	_input_device_dropdown.connect("item_selected", self, "_set_input_device")
+	
+	MusicPlayer.auto_play_next = true
+	MusicPlayer.set_volume(Settings.music_volume)
+	MusicPlayer.attempt_next()
 
 ##
 # @method _start_game
@@ -61,6 +70,14 @@ func _toggle_fullscreen():
 ##
 func _toggle_tutorial():
 	Settings.tutorial_unabled = _tutorial_checkbox.pressed
+	
+##
+# @method _set_music_volume
+# @param {float} volume
+##
+func _set_music_volume(volume:float):
+	Settings.music_volume = volume
+	MusicPlayer.set_volume(volume)
 		
 ##
 # @method _set_language
@@ -76,6 +93,7 @@ func _set_language(idx:int):
 	_quit_button.text = tr("QUIT")
 	_fullscreen_checkbox.text = tr("FULLSCREEN")
 	_tutorial_checkbox.text = tr("TUTORIAL_ENABLE")
+	_music_volume_label.text = tr("MUSIC_VOLUME")
 	
 	# Set items of input device drop down.
 	_input_device_dropdown.clear()

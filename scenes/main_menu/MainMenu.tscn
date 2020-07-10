@@ -43,12 +43,25 @@ margin_right = 178.0
 margin_bottom = 100.0
 text = "Tutorial"
 
-[node name="LanguageDropdown" type="OptionButton" parent="Menu"]
+[node name="MusicVolumeLabel" type="Label" parent="Menu"]
 margin_top = 104.0
 margin_right = 178.0
-margin_bottom = 124.0
+margin_bottom = 118.0
+text = "Music volume:"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Menu"]
+margin_top = 122.0
+margin_right = 178.0
+margin_bottom = 138.0
+min_value = -70.0
+max_value = 0.0
+
+[node name="LanguageDropdown" type="OptionButton" parent="Menu"]
+margin_top = 142.0
+margin_right = 178.0
+margin_bottom = 162.0
 
 [node name="InputDeviceDropdown" type="OptionButton" parent="Menu"]
-margin_top = 128.0
+margin_top = 166.0
 margin_right = 178.0
-margin_bottom = 148.0
+margin_bottom = 186.0

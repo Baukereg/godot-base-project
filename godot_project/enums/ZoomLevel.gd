@@ -9,17 +9,14 @@ enum {
 onready var data = [
 	{
 		"name": "normal",
-		"translation": Vector3(0, 7.5, 5),
-		"rotation": Vector3(deg2rad(-55), 0, 0),
+		"translation": Vector3(0, 12, 12),
 	},
 	{
 		"name": "close up",
-		"translation": Vector3(0, 2.5, 3),
-		"rotation": Vector3(deg2rad(-25), 0, 0),
+		"translation": Vector3(0, 6, 6),
 	},
 	{
 		"name": "overview",
-		"translation": Vector3(0, 13, 5),
-		"rotation": Vector3(deg2rad(-70), 0, 0),
+		"translation": Vector3(0, 26, 26),
 	},
 ]

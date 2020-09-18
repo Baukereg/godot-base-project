@@ -42,7 +42,6 @@ func attempt_next():
 		if _current_track >= _playlist.size():
 			_current_track = 0
 			
-		print_debug("Play " + _playlist[_current_track].name);
 		_audio_stream.stream = _playlist[_current_track].resource
 		_audio_stream.play()
 		
@@ -50,6 +49,5 @@ func attempt_next():
 # @method _on_track_finished
 ##
 func _on_track_finished():
-	print_debug("_on_track_finished")
 	if auto_play_next:
 		attempt_next()

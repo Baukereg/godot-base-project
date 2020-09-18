@@ -19,10 +19,10 @@ func _physics_process(delta):
 	if target != null:
 		translation = lerp(translation, target.translation, TARGET_LERP_SPEED)
 	
-	if Input.is_action_pressed("ui_rotate_left"):
+	if Input.is_action_pressed("ui_rotate_clockwise"):
 		rotate_y(-ROTATION_SPEED)
 		emit_signal("camera_rotated", rotation.y)
-	if Input.is_action_pressed("ui_rotate_right"):
+	if Input.is_action_pressed("ui_rotate_anticlockwise"):
 		rotate_y(ROTATION_SPEED)
 		emit_signal("camera_rotated", rotation.y)
 		
@@ -37,17 +37,12 @@ func set_zoom_level(id:int, tween:bool = false):
 	
 	if !tween:
 		_camera.translation = zoom_level_data.translation
-		_camera.rotation = zoom_level_data.rotation
+		_camera.look_at(Vector3.ZERO, Vector3.UP);
 	else:
 		_tween.stop_all()
 		_tween.interpolate_property(
 			_camera, "translation",
 			_camera.translation, zoom_level_data.translation, ZOOM_SPEED,
-			Tween.TRANS_QUAD, Tween.EASE_OUT
-		)
-		_tween.interpolate_property(
-			_camera, "rotation",
-			_camera.rotation, zoom_level_data.rotation, ZOOM_SPEED,
 			Tween.TRANS_QUAD, Tween.EASE_OUT
 		)
 		_tween.start()

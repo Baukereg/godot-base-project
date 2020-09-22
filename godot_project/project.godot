@@ -45,6 +45,7 @@ config/icon="res://icon.png"
 [autoload]
 
 EventType="*res://enums/EventType.gd"
+Flag="*res://enums/Flag.gd"
 InputDevice="*res://enums/InputDevice.gd"
 Language="*res://enums/Language.gd"
 MusicTrack="*res://enums/MusicTrack.gd"
@@ -52,6 +53,7 @@ TutorialEntry="*res://enums/TutorialEntry.gd"
 ZoomLevel="*res://enums/ZoomLevel.gd"
 ActionPropagator="*res://static/ActionPropagator.gd"
 EventBus="*res://static/EventBus.gd"
+Flags="*res://static/Flags.gd"
 MusicPlayer="*res://static/MusicPlayer.gd"
 Session="*res://static/Session.gd"
 Settings="*res://static/Settings.gd"
@@ -123,6 +125,7 @@ ui_pause={
 
 3d_physics/layer_1="static"
 3d_physics/layer_2="player"
+3d_physics/layer_3="interactable"
 
 [locale]
 

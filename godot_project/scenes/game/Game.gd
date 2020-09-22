@@ -24,6 +24,14 @@ func _ready():
 			_start_tutorial([TutorialEntry.BASICS_KEYBOARD, TutorialEntry.HAVE_FUN])
 		elif Settings.input_device == InputDevice.JOYPAD:
 			_start_tutorial([TutorialEntry.BASICS_JOYPAD, TutorialEntry.HAVE_FUN])
+			
+	Flags.subscribe(Flag.ON_INTERACTABLE, self, "_on_interactable")
+	
+##
+# @override
+##
+func _exit_tree():
+	Flags.unsubscribe(Flag.ON_INTERACTABLE, self, "_on_interactable")
 	
 ##
 # @override
@@ -78,3 +86,12 @@ func _on_pause_menu_close():
 	remove_child(_pause_menu)
 	_pause_menu.queue_free()
 	_pause_menu = null
+
+func _on_interactable_entered(player):
+	Flags.set_flag(Flag.ON_INTERACTABLE, true)
+
+func _on_interactable_exited(player):
+	Flags.set_flag(Flag.ON_INTERACTABLE, false)
+	
+func _on_interactable(value:bool):
+	print_debug("interactable = " + str(value))

@@ -24,6 +24,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/game/player/Player.gd"
 }, {
+"base": "StateInstance",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://state/player_state/PlayerState.gd"
+}, {
+"base": "PlayerState",
+"class": "PlayerStateIdle",
+"language": "GDScript",
+"path": "res://state/player_state/PlayerStateWalk.gd"
+}, {
+"base": "PlayerState",
+"class": "PlayerStateWalk",
+"language": "GDScript",
+"path": "res://state/player_state/PlayerStateIdle.gd"
+}, {
+"base": "Node",
+"class": "StateInstance",
+"language": "GDScript",
+"path": "res://state/StateInstance.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://state/StateMachine.gd"
+}, {
 "base": "Control",
 "class": "Tutorial",
 "language": "GDScript",
@@ -33,6 +58,11 @@ _global_script_class_icons={
 "CamController": "",
 "PauseMenu": "",
 "Player": "",
+"PlayerState": "",
+"PlayerStateIdle": "",
+"PlayerStateWalk": "",
+"StateInstance": "",
+"StateMachine": "",
 "Tutorial": ""
 }
 
@@ -49,6 +79,7 @@ Flag="*res://enums/Flag.gd"
 InputDevice="*res://enums/InputDevice.gd"
 Language="*res://enums/Language.gd"
 MusicTrack="*res://enums/MusicTrack.gd"
+State="*res://enums/State.gd"
 TutorialEntry="*res://enums/TutorialEntry.gd"
 ZoomLevel="*res://enums/ZoomLevel.gd"
 ActionPropagator="*res://static/ActionPropagator.gd"

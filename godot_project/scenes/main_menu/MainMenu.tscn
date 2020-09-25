@@ -15,6 +15,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "Title of the game"
 
 [node name="Menu" type="VBoxContainer" parent="."]
+editor/display_folded = true
 margin_left = 10.0
 margin_top = 75.0
 margin_right = 188.0

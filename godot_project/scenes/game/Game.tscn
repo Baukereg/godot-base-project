@@ -30,7 +30,6 @@ editor/display_folded = true
 [node name="Player" parent="." instance=ExtResource( 4 )]
 collision_layer = 2
 collision_mask = 5
-user_control = true
 
 [node name="Stage" type="StaticBody" parent="."]
 editor/display_folded = true
@@ -44,6 +43,7 @@ material/0 = null
 shape = SubResource( 1 )
 
 [node name="Interactable" type="Area" parent="."]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9051, 0, 4.83401 )
 collision_layer = 4
 collision_mask = 2

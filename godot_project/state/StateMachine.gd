@@ -1,8 +1,7 @@
 extends Node
 class_name StateMachine
 
-onready var _owner = get_parent()
-
+var _state_id = -1
 var _state = null
 
 ##
@@ -25,8 +24,8 @@ func set_state(state_id:int):
 		_state.queue_free()
 		_state = null
 	
-	var state_data = State.data[state_id]
+	_state_id = state_id
+	var state_data = State.data[_state_id]
 	_state = state_data.resource.new()
-	_state.initialize(self, _owner)
 	add_child(_state)
 	

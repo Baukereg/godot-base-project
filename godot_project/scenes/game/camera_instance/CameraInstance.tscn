@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/game/camera_instance/CameraInstance.gd" type="Script" id=1]
+[ext_resource path="res://state/StateMachine.gd" type="Script" id=2]
+
+
+
+[node name="CamControl" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.573576, 0.819152, 0, -0.819152, 0.573576, 0, 7.5, 5 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )

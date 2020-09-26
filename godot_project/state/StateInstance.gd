@@ -5,12 +5,11 @@ var _state_machine:StateMachine = null
 var _owner = null
 
 ##
-# @method initialize
-# @param {Variant} owner
+# @override
 ##
-func initialize(state_machine:StateMachine, owner):
-	_state_machine = state_machine
-	_owner = owner
+func _ready():
+	_state_machine = get_parent()
+	_owner = _state_machine.get_parent()
 
 ##
 # Should return a new state id should a transition to a new state be required,

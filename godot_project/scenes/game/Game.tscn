@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://EnvironmentDefault.tres" type="Environment" id=2]
-[ext_resource path="res://scenes/game/cam_control/CamControl.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/game/camera_instance/CameraInstance.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/game/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/3D/meshes/mesh_stage.tres" type="ArrayMesh" id=5]
 
@@ -24,7 +24,7 @@ environment = ExtResource( 2 )
 transform = Transform( 0.63779, -0.610726, 0.469296, 0, 0.609308, 0.792933, -0.770211, -0.505725, 0.388611, 0, 2.97402, 0 )
 shadow_enabled = true
 
-[node name="CamControl" parent="." instance=ExtResource( 3 )]
+[node name="CameraInstance" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
@@ -56,5 +56,3 @@ mesh = SubResource( 3 )
 material/0 = null
 [connection signal="body_entered" from="Interactable" to="." method="_on_interactable_entered"]
 [connection signal="body_exited" from="Interactable" to="." method="_on_interactable_exited"]
-
-[editable path="CamControl"]

@@ -1,13 +1,11 @@
 extends Spatial
 
-onready var TUTORIAL_RESOURCE = preload("res://scenes/game/tutorial/Tutorial.tscn")
 onready var PAUSE_MENU_RESOURCE = preload("res://scenes/game/pause_menu/PauseMenu.tscn")
 
-onready var _camera_instance:CameraInstance = $CameraInstance
-onready var _player:Player = $Player
+onready var _camera_instance = $CameraInstance
+onready var _player = $Player
 
-var _tutorial:Tutorial = null
-var _pause_menu:PauseMenu = null
+var _pause_menu = null
 
 ##
 # @override
@@ -17,13 +15,6 @@ func _ready():
 	_camera_instance.target = _player
 	_camera_instance.set_zoom_level(ZoomLevel.NORMAL)
 	_camera_instance.connect("camera_rotated", self, "_on_camera_rotated")
-	
-	# Display the tutorial if enabled.
-	if Settings.tutorial_unabled:
-		if Settings.input_device == InputDevice.KEYBOARD:
-			_start_tutorial([TutorialEntry.BASICS_KEYBOARD, TutorialEntry.HAVE_FUN])
-		elif Settings.input_device == InputDevice.JOYPAD:
-			_start_tutorial([TutorialEntry.BASICS_JOYPAD, TutorialEntry.HAVE_FUN])
 			
 	Flags.subscribe(Flag.ON_INTERACTABLE, self, "_on_interactable")
 	
@@ -39,24 +30,6 @@ func _exit_tree():
 func _physics_process(delta):
 	if Input.is_action_just_released("ui_pause"):
 		_open_pause_menu()
-		
-##
-# @method _start_tutorial
-# @param {Array} entry_ids
-##
-func _start_tutorial(entry_ids:Array):
-	_tutorial = TUTORIAL_RESOURCE.instance()
-	add_child(_tutorial)
-	_tutorial.initialize(entry_ids)
-	_tutorial.connect("tutorial_end", self, "_on_tutorial_end")
-		
-##
-# @method _on_tutorial_end
-##
-func _on_tutorial_end():
-	remove_child(_tutorial)
-	_tutorial.queue_free()
-	_tutorial = null
 	
 ##
 # @method _on_camera_rotated

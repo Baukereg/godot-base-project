@@ -53,11 +53,6 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://state/StateMachine.gd"
-}, {
-"base": "Control",
-"class": "Tutorial",
-"language": "GDScript",
-"path": "res://scenes/game/tutorial/Tutorial.gd"
 } ]
 _global_script_class_icons={
 "CameraInstance": "",
@@ -68,8 +63,7 @@ _global_script_class_icons={
 "PlayerStateIdle": "",
 "PlayerStateWalk": "",
 "StateInstance": "",
-"StateMachine": "",
-"Tutorial": ""
+"StateMachine": ""
 }
 
 [application]

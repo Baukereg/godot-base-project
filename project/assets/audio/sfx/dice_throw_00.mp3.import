@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dice_throw_00.mp3-fe1f8be78bfe0c1a0c4baeef0420fede.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/dice_throw_00.mp3"
+dest_files=[ "res://.import/dice_throw_00.mp3-fe1f8be78bfe0c1a0c4baeef0420fede.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

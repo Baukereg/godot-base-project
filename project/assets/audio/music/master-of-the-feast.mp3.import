@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/master-of-the-feast.mp3-0f06b14791a620b9b6efa3f29c314cee.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/master-of-the-feast.mp3"
+dest_files=[ "res://.import/master-of-the-feast.mp3-0f06b14791a620b9b6efa3f29c314cee.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

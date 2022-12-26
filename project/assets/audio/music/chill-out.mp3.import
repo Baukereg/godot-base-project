@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/chill-out.mp3-f7d8551760a30dfcec1ee85f5832c937.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/chill-out.mp3"
+dest_files=[ "res://.import/chill-out.mp3-f7d8551760a30dfcec1ee85f5832c937.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

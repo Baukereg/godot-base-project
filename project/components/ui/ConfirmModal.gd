@@ -1,12 +1,15 @@
 extends Popup
 
-export(String) var text = "YOU_SURE"
-export(String) var no_text = "YOU_SURE_NO"
-export(String) var yes_text = "YOU_SURE_YES"
 
 onready var label = $CenterContainer2/HBoxContainer/Label
 onready var no_button = $CenterContainer2/HBoxContainer/NoButton
 onready var yes_button = $CenterContainer2/HBoxContainer/YesButton
+
+
+export(String) var text = "YOU_SURE"
+export(String) var no_text = "YOU_SURE_NO"
+export(String) var yes_text = "YOU_SURE_YES"
+
 
 func _ready():
 	# Set texts.

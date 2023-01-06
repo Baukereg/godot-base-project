@@ -1,5 +1,6 @@
 extends VBoxContainer
 signal language_changed
+signal camera_smoothing_speed_changed
 
 
 const DEFAULT_LANGUAGE = "en"
@@ -12,6 +13,7 @@ onready var _font_dyslexic_resource = preload("res://theme/fonts/font_dyslexic.t
 onready var language_option_button = $LanguageOptionButton
 onready var fullscreen_button = $FullscreenButton
 onready var dyslexic_button = $DyslexicButton
+onready var smooth_camera_slider = $SmoothCameraSlider
 onready var audio_slider:Slider = $AudioSlider
 onready var audio_stream_player = $AudioStreamPlayer
 onready var music_slider = $MusicSlider
@@ -24,6 +26,7 @@ func _ready():
 	_change_language(TranslationServer.get_loaded_locales().find(DEFAULT_LANGUAGE))
 	fullscreen_button.pressed = Settings.fullscreen
 	dyslexic_button.pressed = Settings.dyslexic_font
+	smooth_camera_slider.value = Settings.camera_smoothing_speed
 	audio_slider.value = Settings.audio_volume
 	music_slider.value = Settings.music_volume
 	set_audio_volume(Settings.audio_volume)
@@ -33,6 +36,7 @@ func _ready():
 	language_option_button.connect("item_selected", self, "_change_language")
 	fullscreen_button.connect("pressed", self, "_toggle_fullscreen")
 	dyslexic_button.connect("pressed", self, "_toggle_dyslexic_font")
+	smooth_camera_slider.connect("value_changed", self, "_set_camera_smoothing_speed")
 	audio_slider.connect("value_changed", self, "set_audio_volume", [ true ])
 	audio_slider.connect("drag_started", self, "_start_audio_drag")
 	audio_slider.connect("drag_ended", self, "_stop_audio_drag")
@@ -68,6 +72,11 @@ func _toggle_dyslexic_font():
 		_default_theme.set_default_font(_font_dyslexic_resource)
 	else:
 		_default_theme.set_default_font(_font_foundry_resource)
+	
+	
+func _set_camera_smoothing_speed(camera_smoothing_speed:float):
+	Settings.camera_smoothing_speed = camera_smoothing_speed
+	emit_signal("camera_smoothing_speed_changed")
 		
 		
 func _start_audio_drag():
